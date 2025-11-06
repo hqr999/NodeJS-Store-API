@@ -1,3 +1,3 @@
-# Store API 
+# Loja API 
 
-The basic README of the project
+README básico do projeto
