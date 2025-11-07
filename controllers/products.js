@@ -1,12 +1,15 @@
+const Product = require('../models/product')
 
 
 const pegaTodosProdutosEstatico = async (req,res) => {
-    throw new Error('testing async errors')
-    res.status(200).json({msg:'produtos teste rota'})
+    const products = await Product.find({featured:true})
+    res.status(200).json({products,number_elements:products.length})
 }
 
 const pegaTodosProdutos = async (req,res) => {
-    res.status(200).json({msg:'produtos teste rota'})
+    const products = await Product.find(req.query)
+
+    res.status(200).json({products,number_elements:products.length})
 }
 
 module.exports = {
