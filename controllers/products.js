@@ -3,7 +3,7 @@ const Product = require('../models/product')
 
 
 const getAllProductsStatic = async (req, res) => {
-    const products = await Product.find({}).select('name price')
+    const products = await Product.find({}).sort('name').select('name price').limit(6)
     res.status(200).json({ products, number_elements: products.length })
 }
 
